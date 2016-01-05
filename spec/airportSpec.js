@@ -20,11 +20,16 @@ describe("Airport", function() {
       airport.instruct_land(plane);
       expect(airport.planes).toContain(plane);
     });
-    // it("should allow plane to land if not stormy", function() {
-    //   spyOn(weather, "stormy").and.returnValue(false);
-    //   airport.instruct_land(plane);
-    //   expect(airport.planes).toContain(plane);
-    // });
+    it("should allow plane to land if not stormy", function() {
+      spyOn(weather, "stormy").and.returnValue(false);
+      airport.instruct_land(plane);
+      expect(airport.planes).toContain(plane);
+    });
+    it("should not allow plane to land if stormy", function() {
+      spyOn(weather, "stormy").and.returnValue(true);
+      airport.instruct_land(plane);
+      expect(airport.planes).toThrow("plane cannot land in stormy weather");
+    });
   });
 
   describe("Plane takes off", function() {
