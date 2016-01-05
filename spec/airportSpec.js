@@ -15,4 +15,12 @@ describe("Airport", function() {
       expect(airport.planes).toContain(plane);
     });
   });
+
+  describe("Plane takes off", function() {
+    it("should confirm a plane has taken off", function() {
+      airport.instruct_land(plane);
+      airport.instruct_takeoff(plane);
+      expect(airport.planes).not.toContain(plane);
+    });
+  });
 });
