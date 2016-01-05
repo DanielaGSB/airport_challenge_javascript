@@ -1,5 +1,3 @@
-// getScript("plane.js")
-
 describe("Airport", function() {
   var airport;
   var plane;
@@ -31,6 +29,12 @@ describe("Airport", function() {
         airport.instruct_land(plane);
       }).toThrow("plane cannot land in stormy weather");
     });
+    it("should not allow plane to land if airport is full", function() {
+      spyOn(weather, "stormy").and.returnValue(false);
+      spyOn(airport, "capacity").and.returnValue(0);
+      expect(function(){
+        airport.instruct_land(plane);
+    }).toThrow("airport is full, plane cannot land");
   });
 
   describe("Plane takes off", function() {
@@ -40,4 +44,5 @@ describe("Airport", function() {
       expect(airport.planes).not.toContain(plane);
     });
   });
+});
 });

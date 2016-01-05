@@ -9,6 +9,9 @@ Airport.prototype.instruct_land = function(plane) {
   if(weather.stormy() === true) {
     throw("plane cannot land in stormy weather");
   }
+  // if(this.planes.length() >= this.planes.capacity()) {
+  //   throw("airport is full, plane cannot land");
+  // }
 };
 
 Airport.prototype.instruct_takeoff = function(plane) {
