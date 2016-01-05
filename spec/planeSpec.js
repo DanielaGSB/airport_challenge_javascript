@@ -3,8 +3,15 @@ describe("Plane", function() {
   var plane;
 
   beforeEach(function() {
-    airport = new Airport();
     plane = new Plane();
+    airport = {
+      instruct_land: function(plane) {
+        plane.isFlying = false;
+      },
+      instruct_takeoff: function(plane) {
+        plane.isFlying = true;
+      }
+    };
   });
 
   describe("Plane lands", function() {

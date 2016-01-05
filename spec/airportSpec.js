@@ -6,7 +6,10 @@ describe("Airport", function() {
 
   beforeEach(function() {
     airport = new Airport();
-    plane = new Plane();
+    plane = {
+      land: function() {},
+      takeoff: function(){}
+    };
   });
 
   describe("Plane lands", function() {
