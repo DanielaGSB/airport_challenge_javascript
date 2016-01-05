@@ -8,7 +8,7 @@ describe("Airport", function() {
     airport = new Airport();
     plane = {
       land: function() {},
-      takeoff: function(){}
+      takeoff: function() {}
     };
     weather = {
       stormy: function() {},
@@ -27,8 +27,9 @@ describe("Airport", function() {
     });
     it("should not allow plane to land if stormy", function() {
       spyOn(weather, "stormy").and.returnValue(true);
-      airport.instruct_land(plane);
-      expect(airport.planes).toThrow("plane cannot land in stormy weather");
+      expect(function(){
+        airport.instruct_land(plane);
+      }).toThrow("plane cannot land in stormy weather");
     });
   });
 

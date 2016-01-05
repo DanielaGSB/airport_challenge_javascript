@@ -6,8 +6,8 @@ Airport.prototype.instruct_land = function(plane) {
   if(weather.stormy() === false);{
     this.planes.push(plane);
 }
-  if(weather.stormy() === true);{
-    throw new Error("plane cannot land in stormy weather");
+  if(weather.stormy() === true) {
+    throw("plane cannot land in stormy weather");
   }
 };
 
