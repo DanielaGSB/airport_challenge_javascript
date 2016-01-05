@@ -3,7 +3,12 @@ this.planes = [];
 }
 Airport.prototype.instruct_land = function(plane) {
   plane.land();
-  this.planes.push(plane);
+  if(weather.stormy() === false);{
+    this.planes.push(plane);
+}
+// else {
+//     throw new Error("plane cannot land in stormy weather")};
+//   }
 };
 
 Airport.prototype.instruct_takeoff = function(plane) {

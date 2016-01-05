@@ -10,6 +10,9 @@ describe("Airport", function() {
       land: function() {},
       takeoff: function(){}
     };
+    weather = {
+      stormy: function() {},
+    };
   });
 
   describe("Plane lands", function() {
@@ -17,6 +20,11 @@ describe("Airport", function() {
       airport.instruct_land(plane);
       expect(airport.planes).toContain(plane);
     });
+    // it("should allow plane to land if not stormy", function() {
+    //   spyOn(weather, "stormy").and.returnValue(false);
+    //   airport.instruct_land(plane);
+    //   expect(airport.planes).toContain(plane);
+    // });
   });
 
   describe("Plane takes off", function() {
